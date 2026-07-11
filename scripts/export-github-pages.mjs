@@ -15,8 +15,8 @@ const esc = (value = "") => String(value).replaceAll("&", "&amp;").replaceAll("<
 const write = (path, body) => writeFile(`${output}/${path}`, body);
 
 const home = sourceIndex
-  .replaceAll('href="/style.css?v=4"', 'href="./style.css?v=5"')
-  .replaceAll('src="/app.js?v=4"', 'src="./app.js?v=5"')
+  .replaceAll('href="/style.css?v=4"', 'href="./style.css?v=6"')
+  .replaceAll('src="/app.js?v=4"', 'src="./app.js?v=6"')
   .replaceAll('href="/daily-world"', 'href="./daily-world/"')
   .replaceAll('href="/"', 'href="./"')
   .replaceAll('href="/#', 'href="#');
@@ -30,7 +30,7 @@ function nav(depth, active = "world") {
 
 function shell(title, body, depth) {
   const root = depth === 0 ? "./" : depth === 1 ? "../" : "../../";
-  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} · 每日视界</title><meta name="description" content="每日视界深度杂志"><link rel="stylesheet" href="${root}style.css?v=5"></head><body><main><div class="ticker"><span>DAILY INSIGHT</span><span>2026 / 07 / 10 · 周五</span><span>DEEP EDITION</span><span>10 STORIES</span></div><header class="sub-mast"><a href="${root}" class="mini-logo">每日视界 <i>DAILY INSIGHT</i></a><span>知道世界 · 理解逻辑</span></header>${nav(depth)}${body}<footer class="site-footer"><div><b>每日视界</b><span>不是追赶所有新闻，而是留下值得记住的部分。</span></div><div class="update-times"><span>早刊 08:00</span><span>晚刊 17:00</span></div></footer></main><script src="${root}app.js?v=5"></script></body></html>`;
+  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} · 每日视界</title><meta name="description" content="每日视界深度杂志"><link rel="stylesheet" href="${root}style.css?v=6"></head><body><main><div class="ticker"><span>DAILY INSIGHT</span><span>2026 / 07 / 10 · 周五</span><span>DEEP EDITION</span><span>10 STORIES</span></div><header class="sub-mast"><a href="${root}" class="mini-logo">每日视界 <i>DAILY INSIGHT</i></a><span>知道世界 · 理解逻辑</span></header>${nav(depth)}${body}<footer class="site-footer"><div><b>每日视界</b><span>不是追赶所有新闻，而是留下值得记住的部分。</span></div><div class="update-times"><span>早刊 08:00</span><span>晚刊 17:00</span></div></footer></main><script src="${root}app.js?v=6"></script></body></html>`;
 }
 
 function card(story) {
