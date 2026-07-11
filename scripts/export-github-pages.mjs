@@ -15,8 +15,8 @@ const esc = (value = "") => String(value).replaceAll("&", "&amp;").replaceAll("<
 const write = (path, body) => writeFile(`${output}/${path}`, body);
 
 const home = sourceIndex
-  .replaceAll('href="/style.css?v=4"', 'href="./style.css?v=6"')
-  .replaceAll('src="/app.js?v=4"', 'src="./app.js?v=6"')
+  .replace(/href="\/style\.css\?v=\d+"/g, 'href="./style.css?v=6"')
+  .replace(/src="\/app\.js\?v=\d+"/g, 'src="./app.js?v=6"')
   .replaceAll('href="/daily-world"', 'href="./daily-world/"')
   .replaceAll('href="/"', 'href="./"')
   .replaceAll('href="/#', 'href="#');
