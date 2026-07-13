@@ -9,6 +9,7 @@ const output = "github-pages";
 await rm(output, { recursive: true, force: true });
 await mkdir(`${output}/daily-world`, { recursive: true });
 await cp("site/style.css", `${output}/style.css`);
+await cp("site/scale.css", `${output}/scale.css`);
 await cp("site/app.js", `${output}/app.js`);
 
 const esc = (value = "") => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
