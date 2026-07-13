@@ -1,3 +1,14 @@
+(() => {
+  const current = document.currentScript;
+  const base = current?.src || `${window.location.origin}${window.location.pathname}`;
+  const href = new URL("scale.css?v=7", base).href;
+  if (document.querySelector(`link[href="${href}"]`)) return;
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = href;
+  document.head.appendChild(link);
+})();
+
 const buttons = document.querySelectorAll("[data-edition-button]");
 const views = document.querySelectorAll("[data-edition-view]");
 
